@@ -4,8 +4,11 @@ export default defineConfig({
   title: 'MLModelCI',
   favicon: 'https://i.loli.net/2021/02/04/hJKY1ONBEtIUM3c.png',
   logo: 'https://i.loli.net/2021/02/04/hJKY1ONBEtIUM3c.png',
-  outputPath: 'docs-dist',
+  outputPath: 'dist',
   mode: 'site',
+  base: '/website',
+  publicPath: '/website/',
+  exportStatic: {}, // 将所有路由输出为 HTML 目录结构，以免刷新页面时 404
   navs: {
     'en-US': [
       null,

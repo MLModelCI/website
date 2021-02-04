@@ -2,10 +2,11 @@
   "private": true,
   "name": "website",
   "version": "1.0.0",
+  "homepage": "http://huangyz0918.github.io/website",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
-    "docs:deploy": "gh-pages -d docs-dist",
+    "docs:deploy": "gh-pages -d dist",
     "build": "father-build",
     "deploy": "npm run docs:build && npm run docs:deploy",
     "release": "npm run build && npm publish",
