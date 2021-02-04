@@ -1,1 +1,1 @@
-export { default as Document } from '../docs/Document';
+export { default as Benchmark } from './Benchmark';

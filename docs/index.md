@@ -27,3 +27,9 @@ footer: MLModelCI | Copyright © 2020<br />
 ## MLModelCI
 
 MLModelCI is a complete MLOps platform for managing, converting, profiling, and deploying MLaaS (Machine Learning-as-a-Service), bridging the gap between current ML training and serving systems.
+
+### System Workflow
+
+<div style="text-align:center"><img src="https://mlmodelci.github.io/website/assets/img/modelci_workflow.svg" /></div>
+
+### Publications
