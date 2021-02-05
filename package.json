@@ -2,7 +2,7 @@
   "private": true,
   "name": "website",
   "version": "1.0.0",
-  "homepage": "http://huangyz0918.github.io/website",
+  "homepage": "http://mlmodelci.github.io/website",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
