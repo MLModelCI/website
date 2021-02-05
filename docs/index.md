@@ -30,7 +30,7 @@ MLModelCI is a complete MLOps platform for managing, converting, profiling, and 
 
 ### System Workflow
 
-<div style="text-align:center"><img src="https://mlmodelci.github.io/website/assets/img/modelci_workflow.svg" /></div>
+<div style="text-align:center"><img src="../assets/images/modelci_workflow.svg" /></div>
 
 ### Publications
 
