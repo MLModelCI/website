@@ -1,6 +1,6 @@
 ---
 hero:
-  title: MLModelCI
+  title: Machine Learning Model CI
   desc: Complete MLOps platform for managing, converting, profiling, and deploying MLaaS
   actions:
     - text: Getting Started
