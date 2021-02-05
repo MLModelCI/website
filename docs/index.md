@@ -33,3 +33,43 @@ MLModelCI is a complete MLOps platform for managing, converting, profiling, and 
 <div style="text-align:center"><img src="https://mlmodelci.github.io/website/assets/img/modelci_workflow.svg" /></div>
 
 ### Publications
+
+```tsx
+/**
+ * inline: true
+ */
+import React from 'react';
+import { Card } from 'antd';
+import 'antd/dist/antd.css';
+
+export default () => (
+  <div>
+    <Card
+      style={{ marginTop: 16 }}
+      type="inner"
+      title="MLModelCI: An Automatic Cloud Platform for Efficient MLaaS."
+      extra={
+        <div>
+          <a href="https://doi.org/10.1145/3394171.3414535">PDF</a>{' '}
+          <a href="https://arxiv.org/abs/2011.02327">Github</a>
+        </div>
+      }
+    >
+      H Zhang, Y Li, Y Huang, Y Wen, J Yin, K Guan. (2020)
+      <p style={{ color: '#52527a' }}>
+        Proceedings of the 28th ACM International Conference on Multimedia,
+        4453--4456
+      </p>
+    </Card>
+    <Card
+      style={{ marginTop: 16 }}
+      type="inner"
+      title="InferBench: Understanding Deep Learning Inference Serving with an Automatic Benchmarking System."
+      extra={<a href="https://arxiv.org/abs/2011.02327">PDF</a>}
+    >
+      H Zhang, Y Huang, Y Wen, J Yin, K Guan.(2020)
+      <p style={{ color: '#52527a' }}>arXiv preprint arXiv:2011.02327</p>
+    </Card>
+  </div>
+);
+```
