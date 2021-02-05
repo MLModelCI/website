@@ -35,7 +35,7 @@ const example_benchmarking_data = [
     duration: '19.104',
   },
   {
-    key: '1',
+    key: '2',
     model_name: 'XLNet (large cased)',
     cpu: 'Intel(R) Xeon(R) E5-2698v4 CPU',
     gpu: 'Nvidia Tesla V100',

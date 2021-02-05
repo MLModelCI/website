@@ -19,7 +19,7 @@ features:
     title: Model Visualizer/Editor
     desc: MLModelCI supports Deep learning model structures visualization, and can edit and fine-tune the models like Microsoft Office.
   - icon: https://gw.alipayobjects.com/zos/bmw-prod/b3e102cd-5dad-4046-a02a-be33241d1cc7/kj9t8oji_w144_h144.png
-    title: Self-evolution Pipelines
+    title: Self-evolution Serving
     desc: With the help of runtime model monitoring and a powerful continual learning engine, MLModelCI allows you to update and maintain the high performance online services.
   - icon: https://gw.alipayobjects.com/zos/bmw-prod/f093e060-726e-471c-a53e-e988ed3f560c/kj9t9sk7_w144_h144.png
     title: Team Collaboration
@@ -31,9 +31,201 @@ footer: MLModelCI | Copyright © 2020<br />
 
 MLModelCI is a complete MLOps platform for managing, converting, profiling, and deploying MLaaS (Machine Learning-as-a-Service), bridging the gap between current ML training and serving systems.
 
-### System Workflow
+### Make your life easier!
 
-<div style="text-align:center"><img src="../assets/images/modelci_workflow.svg" /></div>
+Compare with the traditional AI landing workflow, MLModelCI greatly simplifies the process and provides easy-to-expandable interfaces.
+
+```tsx
+/**
+ * inline: true
+ */
+import React from 'react';
+import ReactFlow from 'react-flow-renderer';
+
+const elements = [
+  {
+    id: '1-input',
+    sourcePosition: 'right',
+    type: 'input',
+    data: { label: 'Pre-trained ML Models' },
+    position: { x: 0, y: 80 },
+    style: {
+      background: '#FF6A6A',
+      color: '#333',
+      border: '1px solid #0000FF',
+    },
+  },
+  {
+    id: '2-mlmodelci',
+    sourcePosition: 'right',
+    targetPosition: 'left',
+    data: { label: 'MLModelCI automatic workflow' },
+    position: { x: 210, y: 0 },
+    style: {
+      background: '#46D5E6',
+      color: '#333',
+      border: '1px solid #222138',
+      width: 450,
+      textAlign: 'center',
+      height: 60,
+    },
+  },
+  {
+    id: '3-modeldb',
+    sourcePosition: 'right',
+    targetPosition: 'left',
+    data: { label: 'Build a modelDB and manage' },
+    position: { x: 210, y: 160 },
+    style: {
+      background: '#D6D5E6',
+      color: '#333',
+      border: '1px solid #222138',
+    },
+  },
+  {
+    id: '4-online-service',
+    sourcePosition: 'bottom',
+    targetPosition: 'left',
+    data: { label: 'Online ML Services' },
+    position: { x: 695, y: 0 },
+    style: {
+      background: '#FFD700',
+      color: '#333',
+      border: '1px solid #222138',
+      width: 200,
+      height: 60,
+    },
+  },
+  {
+    id: '5-convert',
+    sourcePosition: 'left',
+    targetPosition: 'right',
+    data: { label: 'Write model optimization scripts' },
+    position: { x: 380, y: 160 },
+    style: {
+      background: '#D6D5E6',
+      color: '#333',
+      border: '1px solid #222138',
+    },
+  },
+  {
+    id: '6-finetune',
+    sourcePosition: 'right',
+    targetPosition: 'top',
+    data: { label: 'Write fine-tuning scripts' },
+    position: { x: 550, y: 240 },
+    style: {
+      background: '#FFA54F',
+      color: '#333',
+      border: '1px solid #222138',
+    },
+  },
+  {
+    id: '7-test',
+    sourcePosition: 'left',
+    targetPosition: 'top',
+    data: { label: 'Build and conduct A/B testing' },
+    position: { x: 720, y: 240 },
+    style: {
+      background: '#FFA54F',
+      color: '#333',
+      border: '1px solid #222138',
+    },
+  },
+  {
+    id: '8-serving',
+    sourcePosition: 'bottom',
+    targetPosition: 'top',
+    data: { label: 'Deploy models with service APIs' },
+    position: { x: 720, y: 160 },
+    style: {
+      background: '#D6D5E6',
+      color: '#333',
+      border: '1px solid #222138',
+    },
+  },
+  {
+    id: '9-monitor',
+    class: 'normal_node_style',
+    sourcePosition: 'left',
+    targetPosition: 'bottom',
+    data: { label: 'Build service monitor/profiler' },
+    position: { x: 550, y: 160 },
+    style: {
+      background: '#D6D5E6',
+      color: '#333',
+      border: '1px solid #222138',
+    },
+  },
+  // Lines
+  {
+    id: 'l-1',
+    source: '1-input',
+    type: 'smoothstep',
+    target: '3-modeldb',
+    label: 'traditional',
+  },
+  {
+    id: 'l-2',
+    source: '1-input',
+    type: 'smoothstep',
+    target: '2-mlmodelci',
+    label: 'modelci',
+    animated: true,
+  },
+  {
+    id: 'l-3',
+    source: '2-mlmodelci',
+    type: 'smoothstep',
+    target: '4-online-service',
+    animated: true,
+  },
+  {
+    id: 'l-4',
+    source: '3-modeldb',
+    type: 'smoothstep',
+    target: '5-convert',
+  },
+  {
+    id: 'l-5',
+    source: '5-convert',
+    type: 'smoothstep',
+    target: '9-monitor',
+  },
+  {
+    id: 'l-6',
+    source: '9-monitor',
+    type: 'smoothstep',
+    target: '6-finetune',
+  },
+  {
+    id: 'l-7',
+    source: '6-finetune',
+    type: 'smoothstep',
+    target: '7-test',
+  },
+  {
+    id: 'l-8',
+    source: '7-test',
+    type: 'smoothstep',
+    target: '8-serving',
+  },
+  {
+    id: 'l-9',
+    source: '8-serving',
+    type: 'smoothstep',
+    target: '4-online-service',
+  },
+];
+export default () => (
+  <div style={{ height: 300, marginTop: 50 }}>
+    <ReactFlow elements={elements} />
+  </div>
+);
+```
+
+<!-- System OverView -->
+<!-- <div style="text-align:center"><img src="../assets/images/modelci_workflow.svg" /></div> -->
 
 ### Publications
 
