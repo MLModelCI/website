@@ -9,6 +9,62 @@ nav:
 
 # Benchmark
 
+Reference
+
+```tsx
+/**
+ * inline: true
+ */
+import React from 'react';
+import { Card } from 'antd';
+import 'antd/dist/antd.css';
+import ReactFlow from 'react-flow-renderer';
+
+const elements = [
+  {
+    id: '1',
+    type: 'input', // input node
+    data: { label: 'Input Node' },
+    position: { x: 250, y: 25 },
+  },
+  // default node
+  {
+    id: '2',
+    // you can also pass a React component as a label
+    data: { label: <div>Default Node</div> },
+    position: { x: 100, y: 125 },
+  },
+  {
+    id: '3',
+    type: 'output', // output node
+    data: { label: 'Output Node' },
+    position: { x: 250, y: 250 },
+  },
+  // animated edge
+  { id: 'e1-2', source: '1', target: '2', animated: true },
+  { id: 'e2-3', source: '2', target: '3' },
+];
+
+export default () => (
+  <div style={{ width: '100%', display: 'flex' }}>
+    <div style={{ marginTop: 16, width: '49%' }}>
+      <ReactFlow elements={elements} />
+    </div>
+    <Card
+      style={{ marginTop: 16, width: '49%' }}
+      type="inner"
+      title="InferBench: Understanding Deep Learning Inference Serving with an Automatic Benchmarking System."
+      extra={<a href="https://arxiv.org/abs/2011.02327">PDF</a>}
+    >
+      H Zhang, Y Huang, Y Wen, J Yin, K Guan.(2020)
+      <p style={{ color: '#52527a' }}>arXiv preprint arXiv:2011.02327</p>
+    </Card>
+  </div>
+);
+```
+
+Here are some example benchmarking results:
+
 ```tsx
 /**
  * inline: true
@@ -16,41 +72,11 @@ nav:
 import React from 'react';
 import { Table } from 'antd';
 import 'antd/dist/antd.css';
+import data from '../../assets/data/data.json';
 
-const example_benchmarking_data = [
-  {
-    key: '1',
-    model_name: 'XLNet (large cased)',
-    cpu: 'Intel(R) Xeon(R) E5-2698v4 CPU',
-    gpu: 'Nvidia Tesla V100',
-    avg_latency: '19.104',
-    p50_latency: '19.104',
-    p95_latency: '19.104',
-    p99_latency: '19.104',
-    avg_qps: '19.104',
-    bs: '1',
-    avg_mem: '19.104%',
-    avg_gpu: '19.104%',
-    avg_cpu: '19.104%',
-    duration: '19.104',
-  },
-  {
-    key: '2',
-    model_name: 'XLNet (large cased)',
-    cpu: 'Intel(R) Xeon(R) E5-2698v4 CPU',
-    gpu: 'Nvidia Tesla V100',
-    avg_latency: '19.104',
-    p50_latency: '19.104',
-    p95_latency: '19.104',
-    p99_latency: '19.104',
-    avg_qps: '19.104',
-    bs: '1',
-    avg_mem: '19.104%',
-    avg_gpu: '19.104%',
-    avg_cpu: '19.104%',
-    duration: '19.104',
-  },
-];
+const bmk_data = JSON.parse(data);
+
+// const BenchmarkData = JSON.parse('../../assets/data/data.json');
 
 const bmk_columns = [
   {
@@ -59,70 +85,60 @@ const bmk_columns = [
     key: 'model_name',
   },
   {
-    title: 'CPU',
-    dataIndex: 'cpu',
-    key: 'cpu',
+    title: 'Device Name',
+    dataIndex: 'device_name',
+    key: 'device_name',
   },
   {
-    title: 'GPU',
-    dataIndex: 'gpu',
-    key: 'gpu',
+    title: 'Benchmark Mode',
+    dataIndex: 'mode',
+    key: 'mode',
   },
   {
-    title: 'Avg Latency (ms)',
-    dataIndex: 'avg_latency',
-    key: 'avg_latency',
+    title: 'Concurrency',
+    dataIndex: 'concurrency',
+    key: 'concurrency',
   },
   {
-    title: 'P50 Latency (ms)',
-    dataIndex: 'p50_latency',
-    key: 'p50_latency',
+    title: 'Serve Framework',
+    dataIndex: 'serve_image',
+    key: 'serve_image',
   },
   {
-    title: 'P95 Latency (ms)',
+    title: 'Request Num',
+    dataIndex: 'request_num',
+    key: 'request_num',
+  },
+  {
+    title: 'Batch Size',
+    dataIndex: 'batch_size',
+    key: 'batch_size',
+  },
+  {
+    title: 'P95 Latency',
     dataIndex: 'p95_latency',
     key: 'p95_latency',
   },
   {
-    title: 'P99 Latency (ms)',
-    dataIndex: 'p99_latency',
+    title: 'P99 Latency',
+    dataIndex: 'p95_latency',
     key: 'p99_latency',
   },
   {
-    title: 'Avg Throughput (req/sec)',
-    dataIndex: 'avg_qps',
-    key: 'avg_qps',
-  },
-  {
-    title: 'Batch Size',
-    dataIndex: 'bs',
-    key: 'bs',
-  },
-  {
-    title: 'Avg Memory Utilization',
-    dataIndex: 'avg_mem',
-    key: 'avg_mem',
-  },
-  {
     title: 'Avg GPU Utilization',
-    dataIndex: 'avg_gpu',
-    key: 'avg_gpu',
+    dataIndex: 'all_batch_avg_util',
+    key: 'all_batch_avg_util',
   },
   {
-    title: 'Avg CPU Utilization',
-    dataIndex: 'avg_cpu',
-    key: 'avg_cpu',
-  },
-  {
-    title: 'Test Duration (s)',
-    dataIndex: 'duration',
-    key: 'duration',
+    title: 'Avg Throughput',
+    dataIndex: 'all_batch_throughput',
+    key: 'all_batch_throughput',
   },
 ];
 
 export default () => (
   <div>
-    <Table dataSource={example_benchmarking_data} columns={bmk_columns} />
+    <Table dataSource={bmk_data} columns={bmk_columns} />
   </div>
 );
 ```
