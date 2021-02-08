@@ -9,7 +9,11 @@ nav:
 
 # Benchmark
 
-Reference
+Benchmarking the whole AI servig pipeline is an essential way to evaluate the system before going online. With the support of MLModelCI, we created InferBench, an automated benchmarking system for AI applications.
+
+## System Workflow & Reference
+
+A typical process of InferBench is as follows:
 
 ```tsx
 /**
@@ -23,26 +27,125 @@ import ReactFlow from 'react-flow-renderer';
 const elements = [
   {
     id: '1',
-    type: 'input', // input node
-    data: { label: 'Input Node' },
-    position: { x: 250, y: 25 },
+    type: 'input',
+    sourcePosition: 'right',
+    targetPosition: 'right',
+    data: { label: 'Generate' },
+    position: { x: 20, y: 0 },
+    style: {
+      background: '#FFC1C1',
+      color: '#333',
+      fontSize: 16,
+      width: 170,
+      border: '2px solid #696969',
+    },
   },
-  // default node
+  {
+    id: '1.5',
+    targetPosition: 'top',
+    sourcePosition: 'top',
+    data: { label: 'scenario, request, workload, model, etc' },
+    position: { x: 20, y: 50 },
+    style: {
+      background: '#87CEFA',
+      color: '#333',
+      fontSize: 12,
+      textAlign: 'center',
+      width: 170,
+      border: '2px solid #696969',
+    },
+  },
   {
     id: '2',
-    // you can also pass a React component as a label
-    data: { label: <div>Default Node</div> },
-    position: { x: 100, y: 125 },
+    data: { label: <div>Serve</div> },
+    position: { x: 220, y: 0 },
+    sourcePosition: 'left',
+    targetPosition: 'right',
+    style: {
+      background: '#FFC1C1',
+      color: '#333',
+      fontSize: 16,
+      width: 170,
+      border: '2px solid #696969',
+    },
+  },
+  {
+    id: '2.5',
+    targetPosition: 'top',
+    sourcePosition: 'top',
+    data: { label: 'TF-Serving, Flask, Triton Inference Server, etc' },
+    position: { x: 220, y: 50 },
+    style: {
+      background: '#87CEFA',
+      color: '#333',
+      fontSize: 12,
+      textAlign: 'center',
+      width: 170,
+      border: '2px solid #696969',
+    },
   },
   {
     id: '3',
-    type: 'output', // output node
-    data: { label: 'Output Node' },
-    position: { x: 250, y: 250 },
+    data: { label: 'Collect' },
+    position: { x: 420, y: 0 },
+    sourcePosition: 'left',
+    targetPosition: 'right',
+    style: {
+      background: '#FFC1C1',
+      color: '#333',
+      fontSize: 16,
+      width: 170,
+      border: '2px solid #696969',
+    },
   },
-  // animated edge
+  {
+    id: '3.5',
+    targetPosition: 'top',
+    sourcePosition: 'top',
+    data: { label: 'QPS, latency, GPU, CPU, Memory, Energy cost, etc' },
+    position: { x: 420, y: 50 },
+    style: {
+      background: '#87CEFA',
+      color: '#333',
+      fontSize: 12,
+      textAlign: 'center',
+      width: 170,
+      border: '2px solid #696969',
+    },
+  },
+  {
+    id: '4',
+    type: 'output',
+    targetPosition: 'left',
+    sourcePosition: 'left',
+    data: { label: 'Analyze' },
+    position: { x: 620, y: 0 },
+    style: {
+      background: '#FFC1C1',
+      color: '#333',
+      fontSize: 16,
+      width: 170,
+      border: '2px solid #696969',
+    },
+  },
+  {
+    id: '4.5',
+    targetPosition: 'top',
+    sourcePosition: 'top',
+    data: { label: 'Bar, Scatter, Heatmap, Roofline Model, etc' },
+    position: { x: 620, y: 50 },
+    style: {
+      background: '#87CEFA',
+      color: '#333',
+      fontSize: 12,
+      textAlign: 'center',
+      width: 170,
+      border: '2px solid #696969',
+    },
+  },
   { id: 'e1-2', source: '1', target: '2', animated: true },
-  { id: 'e2-3', source: '2', target: '3' },
+  { id: 'e2-3', source: '2', target: '3', animated: true },
+  { id: 'e3-4', source: '3', target: '4', animated: true },
 ];
 
 export default () => (
@@ -56,14 +159,21 @@ export default () => (
       title="InferBench: Understanding Deep Learning Inference Serving with an Automatic Benchmarking System."
       extra={<a href="https://arxiv.org/abs/2011.02327">PDF</a>}
     >
-      H Zhang, Y Huang, Y Wen, J Yin, K Guan.(2020)
+      Huaizheng Zhang, Yizheng Huang, Yonggang Wen, Jianxiong Yin, Kyle
+      Guan.(2020)
       <p style={{ color: '#52527a' }}>arXiv preprint arXiv:2011.02327</p>
     </Card>
   </div>
 );
 ```
 
-Here are some example benchmarking results:
+InferBench will automatically simulate some scenarios in the production environment. In different scenarios, the benchmarking system will run the entire AI pipeline, including data transmission, pre-processing, and post-processing. With the detailed analysis of a benchmarking report, system designer and engineers can know how to configure a better MLaaS for their products.
+
+With a continuous system monitor, user can know where are the system performance bottlenecks, and improve them in the first place. For detailed system design and experiments, please refer to our paper.
+
+## Example Benchmarking Results
+
+Here are some example benchmarking results for serving TF-SavedModel in Nvidia Quadro RTX 8000:
 
 ```tsx
 /**
@@ -75,9 +185,6 @@ import 'antd/dist/antd.css';
 import data from '../../assets/data/data.json';
 
 const bmk_data = JSON.parse(data);
-
-// const BenchmarkData = JSON.parse('../../assets/data/data.json');
-
 const bmk_columns = [
   {
     title: 'Model Name',
@@ -85,7 +192,7 @@ const bmk_columns = [
     key: 'model_name',
   },
   {
-    title: 'Device Name',
+    title: 'GPU',
     dataIndex: 'device_name',
     key: 'device_name',
   },
@@ -98,9 +205,11 @@ const bmk_columns = [
     title: 'Concurrency',
     dataIndex: 'concurrency',
     key: 'concurrency',
+    sorter: (a, b) => a.concurrency - b.concurrency,
+    sortDirections: ['descend', 'ascend'],
   },
   {
-    title: 'Serve Framework',
+    title: 'Serving Framework (Docker)',
     dataIndex: 'serve_image',
     key: 'serve_image',
   },
@@ -108,31 +217,43 @@ const bmk_columns = [
     title: 'Request Num',
     dataIndex: 'request_num',
     key: 'request_num',
+    sorter: (a, b) => a.request_num - b.request_num,
+    sortDirections: ['descend', 'ascend'],
   },
   {
     title: 'Batch Size',
     dataIndex: 'batch_size',
     key: 'batch_size',
+    sorter: (a, b) => a.batch_size - b.batch_size,
+    sortDirections: ['descend', 'ascend'],
   },
   {
-    title: 'P95 Latency',
+    title: 'P95 Latency (ms)',
     dataIndex: 'p95_latency',
     key: 'p95_latency',
+    sorter: (a, b) => a.p95_latency - b.p95_latency,
+    sortDirections: ['descend', 'ascend'],
   },
   {
-    title: 'P99 Latency',
+    title: 'P99 Latency (ms)',
     dataIndex: 'p95_latency',
     key: 'p99_latency',
+    sorter: (a, b) => a.p99_latency - b.p99_latency,
+    sortDirections: ['descend', 'ascend'],
   },
   {
-    title: 'Avg GPU Utilization',
+    title: 'Avg GPU Utilization (%)',
     dataIndex: 'all_batch_avg_util',
     key: 'all_batch_avg_util',
+    sorter: (a, b) => a.all_batch_avg_util - b.all_batch_avg_util,
+    sortDirections: ['descend', 'ascend'],
   },
   {
-    title: 'Avg Throughput',
+    title: 'Avg Throughput (req/sec)',
     dataIndex: 'all_batch_throughput',
     key: 'all_batch_throughput',
+    sorter: (a, b) => a.all_batch_throughput - b.all_batch_throughput,
+    sortDirections: ['descend', 'ascend'],
   },
 ];
 
@@ -142,3 +263,67 @@ export default () => (
   </div>
 );
 ```
+
+### Benchmarking Mode
+
+For the benchmakring mode, the InferBench currently support 5 workloads:
+
+- Blocking Request Mode (mode 0)
+- Burst Request Mode (mode 1)
+- Time Series Request Mode (generated by Poisson Distribution) (mode 2)
+- Multi Concurrency Mode (mode 3)
+- Progressive Mode (adjust request load by device utilization) (mode 4)
+
+## Full-list of InferBench Supports
+
+The full list of InferBench database currently includes:
+
+<details>
+<summary>Benchmarking Metric</summary>
+
+- Model Name/Structure/Framework
+- GPU Info/Usage
+- CPU Info/Usage
+- Memory Info/Usage
+- Network Info/Usage
+- Benchmarking Mode
+- Serving Framework
+- Inference Batch Size
+- Inference Throughput (QPS)
+- Inference Latency (list/P50/P95/P99)
+- Carbon Emission (g) (per request)
+- Energy Cost (J) (per request)
+- Cloud Cost (Aliyun, GCP, AWS)
+- Pre-processing Latency/Throughput
+- Post-processing Latency/Throughput
+
+</details>
+
+<details>
+<summary>Benchmarking Nvidia GPUs</summary>
+
+- Nvidia A100
+- Nvidia Tesla V100
+- Nvidia Tesla T4
+- Nvidia Tesla P4
+- Nvidia Tesla P40
+- Nvidia Tesla P100
+- Nvidia Tesla K80
+- Nvidia GeForce RTX 2080 Ti
+- Nvidia Quadro RTX 8000
+
+</details>
+
+<details>
+<summary>Benchmarking Serving Frameworks</summary>
+
+- TensorFlow-Serving
+- ONNX + Flask
+- Pytorch + Flask
+- TorchScript + Flask
+- Nvidia Triton Inference Server
+- Clipper
+
+</details>
+
+We are keeping updating the benchmarking database and analysis, if you want to request a free access to the whole database, or get the visualization and system demo, please [contact us](https://mlmodelci.github.io/website/contact).
