@@ -7,9 +7,9 @@ nav:
   order: 2
 ---
 
-# Benchmark
+# Benchmark AI Serving Pipeline
 
-Benchmarking the whole AI servig pipeline is an essential way to evaluate the system before going online. With the support of MLModelCI, we created InferBench, an automated benchmarking system for AI applications.
+Benchmarking the whole AI model servig pipeline is an essential way to evaluate the system before going online. With the support of MLModelCI, we created InferBench, an automated benchmarking system for AI applications.
 
 ## System Workflow & Support
 
@@ -174,7 +174,7 @@ For the benchmakring mode, the InferBench currently support 5 workloads:
 - Multi Concurrency Mode (mode 3)
 - Progressive Mode (adjust request load by device utilization) (mode 4)
 
-### Full-list of InferBench Supports
+### Supports
 
 The full list of InferBench database currently includes:
 

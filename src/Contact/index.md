@@ -62,7 +62,8 @@ export default () => (
         }}
       >
         Huaizheng Zhang is a PhD student at Nanyang Technological University,
-        Singapore. He is a Co-founder of MLModelCI, created and maintained{' '}
+        Singapore. He is the project leader and Co-founder of MLModelCI, created
+        and maintained{' '}
         <a herf="https://github.com/HuaizhengZhang/Awesome-System-for-Machine-Learning">
           Awesome-System-for-Machine-Learning
         </a>{' '}
@@ -117,8 +118,54 @@ export default () => (
         and environmental friendly container buildings for the left-behind
         children in China. He did an internship at Microsoft Research Asia and
         Open Data Kit (Google SoC), and has achieved over 5K stars in Github
-        when he is a undergrad student. Currently, he is interested in building
-        large-scale systems for AI landing.
+        when he was an undergrad student. Currently, he is interested in
+        building large-scale systems for AI landing.
+      </p>
+    </Card>
+    <Card
+      style={{
+        marginTop: 16,
+        marginLeft: '2%',
+        width: '49%',
+        flex: 1,
+        minWidth: '300px',
+      }}
+    >
+      <div style={{ display: 'flex' }}>
+        <Avatar
+          size={100}
+          src={'https://i.loli.net/2021/02/08/AiCcGFXEZq14nPM.jpg'}
+        />
+        <div
+          style={{
+            marginLeft: 50,
+            marginTop: 20,
+            color: '#454d64',
+            fontSize: '20px',
+            lineHeight: 1.60625,
+          }}
+        >
+          Yuanming Li
+          <p style={{ fontSize: '16px' }}> Co-founder</p>
+        </div>
+      </div>
+
+      <p
+        style={{
+          marginTop: 20,
+          color: '#454d64',
+          fontSize: '15px',
+          lineHeight: 1.60625,
+        }}
+      >
+        Li Yuanming is an undergraduate student and part-time researcher at
+        Nanyang Technological University. He is one of the initiators, main
+        contributors, and active maintainers of MLModelCI. He is also a member
+        of NTUVibe, a knowledge-sharing platform for students at NTU to search
+        the university courses information and leave comments. He was interned
+        as a researcher at Huawei 2012 Laboratories on AI security. His current
+        research interest is accelerated scaleable system for Machine Learning
+        applications.
       </p>
     </Card>
   </div>
@@ -127,5 +174,6 @@ export default () => (
 
 # Contact Us
 
-- For startup and project details, please send email to huaizhen001@e.ntu.edu.sg.
+- Want to join us? Drop an email with your resume to huaizhen001@e.ntu.edu.sg.
+- For startup collaboration and project details, please send email to huaizhen001@e.ntu.edu.sg.
 - For requesting full benchmarking results and benchmarking system demo, please send email to yizheng.huang@ntu.edu.sg.
