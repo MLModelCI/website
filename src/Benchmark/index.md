@@ -149,27 +149,15 @@ const elements = [
 ];
 
 export default () => (
-  <div style={{ width: '100%', display: 'flex' }}>
-    <div style={{ marginTop: 16, width: '49%' }}>
-      <ReactFlow elements={elements} />
-    </div>
-    <Card
-      style={{ marginTop: 16, width: '49%' }}
-      type="inner"
-      title="InferBench: Understanding Deep Learning Inference Serving with an Automatic Benchmarking System."
-      extra={<a href="https://arxiv.org/abs/2011.02327">PDF</a>}
-    >
-      Huaizheng Zhang, Yizheng Huang, Yonggang Wen, Jianxiong Yin, Kyle
-      Guan.(2020)
-      <p style={{ color: '#52527a' }}>arXiv preprint arXiv:2011.02327</p>
-    </Card>
+  <div style={{ width: '100%', height: 120, marginTop: 30 }}>
+    <ReactFlow elements={elements} />
   </div>
 );
 ```
 
 InferBench will automatically simulate some scenarios in the production environment. In different scenarios, the benchmarking system will run the entire AI pipeline, including data transmission, pre-processing, and post-processing. With the detailed analysis of a benchmarking report, system designer and engineers can know how to configure a better MLaaS for their products.
 
-With a continuous system monitor, user can know where are the system performance bottlenecks, and improve them in the first place. For detailed system design and experiments, please refer to our paper.
+With a continuous system monitor, user can know where are the system performance bottlenecks, and improve them in the first place. For detailed system design and experiments, please refer to [our paper](https://arxiv.org/abs/2011.02327).
 
 ## Example Benchmarking Results
 
