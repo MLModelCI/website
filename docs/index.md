@@ -231,7 +231,12 @@ const elements = [
 ];
 export default () => (
   <div style={{ height: 300, marginTop: 50 }}>
-    <ReactFlow elements={elements} />
+    <ReactFlow
+      elements={elements}
+      nodesDraggable={false}
+      zoomOnScroll={false}
+      zoomOnPinch={false}
+    />
   </div>
 );
 ```

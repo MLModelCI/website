@@ -11,7 +11,7 @@ nav:
 
 Benchmarking the whole AI servig pipeline is an essential way to evaluate the system before going online. With the support of MLModelCI, we created InferBench, an automated benchmarking system for AI applications.
 
-## System Workflow & Reference
+## System Workflow & Support
 
 A typical process of InferBench is as follows:
 
@@ -150,7 +150,12 @@ const elements = [
 
 export default () => (
   <div style={{ width: '100%', height: 120, marginTop: 30 }}>
-    <ReactFlow elements={elements} />
+    <ReactFlow
+      elements={elements}
+      nodesDraggable={false}
+      zoomOnScroll={false}
+      zoomOnPinch={false}
+    />
   </div>
 );
 ```
