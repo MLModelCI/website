@@ -175,5 +175,5 @@ export default () => (
 # Contact Us
 
 - Want to join us? Drop an email with your resume to huaizhen001@e.ntu.edu.sg.
-- For startup collaboration and project details, please send email to huaizhen001@e.ntu.edu.sg.
+- For startup collaboration and project details, please email to huaizhen001@e.ntu.edu.sg.
 - For requesting full benchmarking results and benchmarking system demo, please send email to yizheng.huang@ntu.edu.sg.

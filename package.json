@@ -1,8 +1,8 @@
 {
   "private": true,
-  "name": "website",
+  "name": "mlmodelci.github.io",
   "version": "1.0.0",
-  "homepage": "http://mlmodelci.github.io/website",
+  "homepage": "http://mlmodelci.github.io",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
