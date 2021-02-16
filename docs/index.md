@@ -6,22 +6,22 @@ hero:
     - text: Getting Started
       link: /document
 features:
-  - icon: https://github.com/MLModelCI/MLModelCI.github.io/tree/master/assets/images/1.svg
+  - icon: https://raw.githubusercontent.com/MLModelCI/MLModelCI.github.io/master/assets/images/1.svg
     title: Continuous Integration
     desc: MLModelCI applys the concept of DevOps in software engineering, and can help users to continuous manage the lifecycle of ML services.
-  - icon: https://github.com/MLModelCI/MLModelCI.github.io/tree/master/assets/images/2.svg
+  - icon: https://raw.githubusercontent.com/MLModelCI/MLModelCI.github.io/master/assets/images/2.svg
     title: From Research to Product
     desc: Bridge the gaps between research models and Industrial applications, MLModelCI offers a set of tools to help AI landing without pains.
-  - icon: https://github.com/MLModelCI/MLModelCI.github.io/tree/master/assets/images/3.svg
+  - icon: https://raw.githubusercontent.com/MLModelCI/MLModelCI.github.io/master/assets/images/3.svg
     title: Automatic Profiling
     desc: Simulates the behavior of online ML services, and provides a detailed report about model runtime performance in production.
-  - icon: https://github.com/MLModelCI/MLModelCI.github.io/tree/master/assets/images/4.svg
+  - icon: https://raw.githubusercontent.com/MLModelCI/MLModelCI.github.io/master/assets/images/4.svg
     title: Model Visualizer/Editor
     desc: MLModelCI supports Deep learning model structures visualization, and can edit and fine-tune the models like Microsoft Office.
-  - icon: https://github.com/MLModelCI/MLModelCI.github.io/tree/master/assets/images/5.svg
+  - icon: https://raw.githubusercontent.com/MLModelCI/MLModelCI.github.io/master/assets/images/5.svg
     title: Self-evolution Serving
     desc: With the help of runtime model monitoring and a powerful continual learning engine, MLModelCI allows you to update and maintain the high performance online services.
-  - icon: https://github.com/MLModelCI/MLModelCI.github.io/tree/master/assets/images/6.svg
+  - icon: https://raw.githubusercontent.com/MLModelCI/MLModelCI.github.io/master/assets/images/6.svg
     title: Team Collaboration
     desc: MLModelCI can manage and record the model history, and share the workspace with your teammates, makes team work clear and easily.
 footer: MLModelCI | Copyright © 2020<br />
