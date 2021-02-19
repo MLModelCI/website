@@ -162,9 +162,9 @@ export default () => (
         Nanyang Technological University. He is one of the initiators, main
         contributors, and active maintainers of MLModelCI. He is also a member
         of NTUVibe, a knowledge-sharing platform for students at NTU to search
-        the university courses information and leave comments. He was interned
-        as a researcher at Huawei 2012 Laboratories on AI security. His current
-        research interest is accelerated scaleable system for Machine Learning
+        the university courses information and leave comments. He was visiting
+        researcher at University of California, Berkeley. His current research
+        interest is accelerated scaleable system for Machine Learning
         applications.
       </p>
     </Card>
