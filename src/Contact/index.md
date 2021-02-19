@@ -158,14 +158,14 @@ export default () => (
           lineHeight: 1.60625,
         }}
       >
-        Li Yuanming is an undergraduate student and part-time researcher at
+        Yuanming Li is an undergraduate student and part-time researcher at
         Nanyang Technological University. He is one of the initiators, main
-        contributors, and active maintainers of MLModelCI. He is also a member
-        of NTUVibe, a knowledge-sharing platform for students at NTU to search
-        the university courses information and leave comments. He was visiting
-        researcher at University of California, Berkeley. His current research
-        interest is accelerated scaleable system for Machine Learning
-        applications.
+        contributors, and active maintainers of MLModelCI. He is awarded
+        Singapore government full scholarship for his university’s study. He is
+        also a member of NTUVibe, a knowledge-sharing platform for students at
+        NTU to search the university courses information and leave comments. His
+        current research interest is scaleable accelerated system for Machine
+        Learning applications.
       </p>
     </Card>
   </div>
