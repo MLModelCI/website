@@ -282,6 +282,15 @@ export default () => (
       H Zhang, Y Huang, Y Wen, J Yin, K Guan.(2020)
       <p style={{ color: '#52527a' }}>arXiv preprint arXiv:2011.02327</p>
     </Card>
+    <Card
+      style={{ marginTop: 16 }}
+      type="inner"
+      title="A Serverless Cloud-Fog Platform for DNN-Based Video Analytics with Incremental Learning."
+      extra={<a href="https://arxiv.org/abs/2102.03012">PDF</a>}
+    >
+      H Zhang, M Shen, Y Huang, Y Wen, Y Luo, G Gao, K Guan.(2020)
+      <p style={{ color: '#52527a' }}>arXiv preprint arXiv:2102.03012</p>
+    </Card>
   </div>
 );
 ```
