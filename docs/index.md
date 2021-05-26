@@ -291,6 +291,27 @@ export default () => (
       H Zhang, M Shen, Y Huang, Y Wen, Y Luo, G Gao, K Guan.(2020)
       <p style={{ color: '#52527a' }}>arXiv preprint arXiv:2102.03012</p>
     </Card>
+    <Card
+      style={{ marginTop: 16 }}
+      type="inner"
+      title="ModelPS: An Interactive and Collaborative Platform for Editing Pre-trained Models at Scale"
+      extra={<a href="https://arxiv.org/abs/2105.08275">PDF</a>}
+    >
+      Y Li, H Zhang, S Jiang, F Yang, Y Wen, Y Luo (2021)
+      <p style={{ color: '#52527a' }}>arXiv preprint arXiv:2105.08275</p>
+    </Card>
+    <Card
+      style={{ marginTop: 16 }}
+      type="inner"
+      title="Hysia: Serving DNN-Based Video-to-Retail Applications in Cloud"
+      extra={<a href="https://arxiv.org/abs/2006.05117">PDF</a>}
+    >
+      H Zhang, Y Li, Q Ai, Y Luo, Y Wen, Y Jin, NBD Ta (2020)
+      <p style={{ color: '#52527a' }}>
+        Proceedings of the 28th ACM International Conference on Multimedia,
+        4457-4460
+      </p>
+    </Card>
   </div>
 );
 ```
